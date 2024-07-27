@@ -10,9 +10,15 @@ function mult() {
 function divide() {
   return aNumber / bNumber;
 }
+function ce() {
+  display.textContent = 0;
+  upperDisplay.textContent = null;
+  upperDisplaySecond.textContent = null;
+  input.value = null;
+}
 
-let aNumber = 6;
-let bNumber = 2;
+let aNumber = null;
+let bNumber = null;
 let operator = null;
 
 const input = document.querySelector("input");
@@ -24,115 +30,104 @@ const multButton = document.querySelector("#mult");
 const divideButton = document.querySelector("#divide");
 const ceButton = document.querySelector("#ce");
 const digits = document.querySelector("#digits");
+const display = document.querySelector("#screen");
+const upperDisplay = document.querySelector("#upperScreen");
+const upperDisplaySecond = document.querySelector("#upperScreenSecond");
 
 digits.addEventListener("click", (event) => {
   input.focus();
-
-  console.log("Digit pressed");
   let target = event.target;
   switch (target.id) {
     case "one":
-      console.log("1 pressed");
       input.value += 1;
+
       break;
     case "two":
-      console.log("2 pressed");
       input.value += 2;
+
       break;
     case "three":
-      console.log("3 pressed");
       input.value += 3;
       break;
     case "four":
-      console.log("4 pressed");
       input.value += 4;
       break;
     case "five":
-      console.log("5 pressed");
       input.value += 5;
       break;
     case "six":
-      console.log("6 pressed");
       input.value += 6;
       break;
     case "seven":
-      console.log("7 pressed");
       input.value += 7;
       break;
     case "eight":
-      console.log("8 pressed");
       input.value += 8;
       break;
     case "nine":
-      console.log("9 pressed");
       input.value += 9;
       break;
     case "zero":
-      console.log("0 pressed");
       input.value += 0;
       break;
   }
+  display.textContent = input.value;
 });
 
 buttons.addEventListener("click", (event) => {
-  console.log("One of the button pressed");
-
   let target = event.target;
   switch (target.id) {
     case "add":
-      console.log("add pressed");
       operator = "add";
-      console.log(operator);
       aNumber = input.value;
+      upperDisplay.textContent = input.value + "+";
       break;
     case "sub":
-      console.log("sub pressed");
       operator = "sub";
-      console.log(operator);
       aNumber = input.value;
+      upperDisplay.textContent = input.value + "-";
       break;
     case "mult":
-      console.log("mult pressed");
       operator = "mult";
-      console.log(operator);
       aNumber = input.value;
+      upperDisplay.textContent = input.value + "x";
       break;
     case "divide":
-      console.log("divide pressed");
       operator = "divide";
-      console.log(operator);
+      aNumber = input.value;
+      upperDisplay.textContent = input.value + "/";
       break;
     case "ce":
-      input.value = "";
-      aNumber = null;
+      ce();
       break;
   }
   aNumber = input.value;
-  console.log(aNumber);
+  // display.textContent = input.value;
   input.value = "";
   input.focus();
 });
 
 equal.addEventListener("click", function operate() {
-  console.log("equal pressed");
   bNumber = input.value;
+  upperDisplaySecond.textContent = input.value;
   input.value = "";
   switch (operator) {
     case "add":
       add();
-      console.log(add());
+      display.textContent = add();
       break;
     case "sub":
       sub();
-      console.log(sub());
+      display.textContent = sub();
       break;
     case "mult":
       mult();
-      console.log(mult());
+      display.textContent = mult();
       break;
     case "divide":
       divide();
-      console.log(divide());
+      display.textContent = divide();
       break;
   }
+  input.focus();
 });

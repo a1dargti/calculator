@@ -6,33 +6,114 @@
     <title>Document</title>
   </head>
   <body>
-    <input type="text" />
-    <div id="digits">
-      <div class="button" id="one">1</div>
-      <div class="button" id="two">2</div>
-      <div class="button" id="three">3</div>
-      <div class="button" id="four">4</div>
-      <div class="button" id="five">5</div>
-      <div class="button" id="six">6</div>
-      <div class="button" id="seven">7</div>
-      <div class="button" id="eight">8</div>
-      <div class="button" id="nine">9</div>
-      <div class="button" id="zero">0</div>
+    <div class="calcBody">
+      <input type="text" />
+      <div class="display">
+        <div id="screen">0</div>
+        <div class="upperDisplay">
+          <span id="upperScreen"></span>
+          <span id="upperScreenSecond"> </span>
+        </div>
+      </div>
+      <div class="buttonsWrapper">
+        <div id="digits">
+          <div class="button" id="one">1</div>
+          <div class="button" id="two">2</div>
+          <div class="button" id="three">3</div>
+          <div class="button" id="four">4</div>
+          <div class="button" id="five">5</div>
+          <div class="button" id="six">6</div>
+          <div class="button" id="seven">7</div>
+          <div class="button" id="eight">8</div>
+          <div class="button" id="nine">9</div>
+          <div class="button" id="zero">0</div>
+        </div>
+        <div id="buttons">
+          <div class="button" id="ce">CE</div>
+          <div class="button" id="add">+</div>
+          <div class="button" id="sub">-</div>
+          <div class="button" id="mult">x</div>
+          <div class="button" id="divide">/</div>
+          <div
+            class="button"
+            id="equal"
+            style="background-color: #ed802e; color: #000"
+          >
+            =
+          </div>
+        </div>
+      </div>
     </div>
-    <div id="buttons">
-      <div class="button" id="ce">CE</div>
-      <div class="button" id="add">+</div>
-      <div class="button" id="sub">-</div>
-      <div class="button" id="mult">x</div>
-      <div class="button" id="divide">/</div>
-    </div>
-    <div class="button" id="equal">=</div>
   </body>
   <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+        sans-serif;
+      font-weight: 100;
+    }
+    .calcBody {
+      background-color: white;
+      border-radius: 15px;
+      width: 250px;
+      height: auto;
+      padding-top: 35px;
+      padding-bottom: 35px;
+      filter: drop-shadow(0 4px 3px rgb(0 0 0 / 0.07))
+        drop-shadow(0 2px 2px rgb(0 0 0 / 0.06));
+    }
+    .display {
+      display: flex;
+      flex-direction: column;
+      align-items: end;
+      justify-content: center;
+      padding: 0px 10px;
+      text-align: left;
+    }
+    .upperDisplay {
+      display: flex;
+      align-items: center;
+      height: 40px;
+      padding-right: 4px;
+    }
+    #screen {
+      font-size: 45px;
+      height: 65px;
+    }
+    #digits {
+      display: grid;
+      grid-template-columns: repeat(3, auto);
+      gap: 10px;
+    }
+    input {
+      display: none;
+    }
+    .buttonsWrapper {
+      margin-top: 25px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+    #buttons {
+      margin-top: 10px;
+      display: grid;
+      grid-template-columns: repeat(3, auto);
+      gap: 10px;
+    }
     .button {
-      width: 30px;
-      height: 30px;
-      border: 2px solid blue;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 50px;
+      height: 40px;
+      background-color: white;
+      filter: drop-shadow(0 1px 2px rgb(0 0 0 / 0.1))
+        drop-shadow(0 1px 1px rgb(0 0 0 / 0.06));
     }
   </style>
   <script src="script.js"></script>
