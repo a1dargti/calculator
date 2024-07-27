@@ -23,6 +23,56 @@ const subButton = document.querySelector("#sub");
 const multButton = document.querySelector("#mult");
 const divideButton = document.querySelector("#divide");
 const ceButton = document.querySelector("#ce");
+const digits = document.querySelector("#digits");
+
+digits.addEventListener("click", (event) => {
+  input.focus();
+
+  console.log("Digit pressed");
+  let target = event.target;
+  switch (target.id) {
+    case "one":
+      console.log("1 pressed");
+      input.value += 1;
+      break;
+    case "two":
+      console.log("2 pressed");
+      input.value += 2;
+      break;
+    case "three":
+      console.log("3 pressed");
+      input.value += 3;
+      break;
+    case "four":
+      console.log("4 pressed");
+      input.value += 4;
+      break;
+    case "five":
+      console.log("5 pressed");
+      input.value += 5;
+      break;
+    case "six":
+      console.log("6 pressed");
+      input.value += 6;
+      break;
+    case "seven":
+      console.log("7 pressed");
+      input.value += 7;
+      break;
+    case "eight":
+      console.log("8 pressed");
+      input.value += 8;
+      break;
+    case "nine":
+      console.log("9 pressed");
+      input.value += 9;
+      break;
+    case "zero":
+      console.log("0 pressed");
+      input.value += 0;
+      break;
+  }
+});
 
 buttons.addEventListener("click", (event) => {
   console.log("One of the button pressed");
